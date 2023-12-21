@@ -32,13 +32,16 @@ def main():
                 validate_query_type(query_type)
 
                 query_subtype = get_user_input("Current (C) or Total (T) for year? ").upper()
+                # print("test1")
 
                 if query_subtype == 'T' or query_subtype == 'Y':
                     year = get_user_input("What year? ")
                 else:
                     year = ""
 
+                # print("test2")
                 command = f"{employee_id} {query_type} {query_subtype} {year}"
+                # print(command)
                 s.sendall(command.encode())
 
                 data = s.recv(1024).decode()
